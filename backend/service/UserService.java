@@ -35,7 +35,7 @@ public class UserService {
 	public Map<String,String> login(User user)
 	{
 		Map<String,String>map=new HashMap();
-		long id=repo.findId();
+		long id=repo.findId(user.getMobile(),user.getPassword());
 		User u=repo.findById(id).orElse(null);
 		if(repo.existsByMobileAndPassword(user.getMobile(),user.getPassword()))
 		{
